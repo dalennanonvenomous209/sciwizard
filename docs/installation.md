@@ -30,14 +30,6 @@ The `-e` flag installs in editable mode — changes to the source are reflected 
 
 ---
 
-## Install from PyPI (when published)
-
-```bash
-pip install sciwizard
-```
-
----
-
 ## Platform notes
 
 ### Windows
